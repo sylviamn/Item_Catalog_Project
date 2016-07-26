@@ -1,0 +1,65 @@
+<!--Item page that shows list of items for a category for usrs logged in-->
+
+<!--Header-->
+{% extends "header.html" %}
+
+<!--page content-->
+{% block content %}
+		
+		<!--Flash Message-->
+	
+		<div class = 'flash'>
+			{% with messages = get_flashed_messages()%}
+				{% if messages %}
+					<ul>
+					{% for message in messages %}
+						<li><strong> {{ message }} </strong></li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+		
+		<!--Shows title with link to go back to main page-->
+		<h1>{{ category.name }}<font size="3"><a href='{{ url_for('showCategory') }}'> - View All Categories</a></font></h1>
+		
+		<!--Buttons for Editing Category, Deleting Category, and Adding New Item to Cateory -->
+		<h4><a href='{{ url_for('editCategory', category_id=category.id) }}'><button type="button">Edit Category</button></a>
+		<a href='{{ url_for('deleteCategory', category_id=category.id) }}'><button type="button">Delete Category</button></a>
+		<a href='{{ url_for('newItem', category_id=category.id) }}'><button type="button">Add New Item</button></a></h4>
+
+		<!--Shows list of items with details in clickable tile format-->
+		<!--Shows buttons to Add/Delete item-->
+		
+		
+		<div class="col-xs-12 col-sm-12">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="row">
+			  {% for i in items %}
+				<div class="col-xs-6 col-lg-4">
+					<div class="well2" >
+						</br>
+						<b><font size="3">{{i.name}}</font></b>
+						</br>
+						</br>
+						<b>Description:</b>  {{i.description}}
+						</br>
+						<b>Color:</b>  {{i.color}}
+						</br>
+						<b>Price:</b>  {{i.price}}
+						</br>
+						</br>
+						<a href='{{ url_for('editItem', category_id=category.id, item_id=i.id) }}'><button type="button">Edit</button></a>
+						<a href='{{ url_for('deleteItem', category_id=category.id, item_id=i.id) }}'><button type="button">Delete</button></a>
+					</div>
+					</br>
+				</div>
+			  {% endfor %}
+          </div>
+        </div>
+	
+
+		
+{% endblock %}

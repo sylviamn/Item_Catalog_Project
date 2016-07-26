@@ -1,0 +1,39 @@
+<!--Header displayed on every page-->
+<html>
+	<head>
+		<!--Bootstrap/custom style sheet-->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<!--Navigation Bar at top of page -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container">
+			<div class="navbar-header">
+				<!--Main header text (links to main page listing all categories when clicked) -->
+				<a class="navbar-brand" href='{{ url_for('showCategory') }}'><font size="6">Item Catalog</font></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse"> 
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<!-- Login/Logout link on top right of header -->
+					   {%if 'username' not in session %}
+							<a href="{{url_for('showLogin')}}"><font size="4">Login</font></a>
+						{% else %}
+							<a href="{{url_for('gdisconnect')}}"><font size="4">Logout</font></a>
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+	
+		<!-- Code for page content -->
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>	
+	</body>
+</html>
+		
+		

@@ -1,0 +1,28 @@
+<!--Confirmation page to delete item in category-->
+
+<!--Header-->
+{% extends "header.html" %}
+{% block content %}
+	
+		<h1>Delete Item - {{ item.name }}</h1>
+
+		<!--Confirmation form to delete item within tile-->
+		<div class="col-xs-12 col-sm-12">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="row">
+			<div class="well3" >
+				<form action="{{ url_for('deleteItem', category_id=category_id, item_id=item.id)}}" method = 'post'>
+					<h3>Are you sure you want to delete this item? </h3>
+					</br>
+					</br>
+					<input type='submit' value='Delete'>
+					<button type="button"> <a href = '{{ url_for('showCategoryItems', category_id=category_id) }}'>Cancel</a></button>
+				</form>
+			</div>
+          </div>
+        </div>
+		
+{% endblock %}
+		

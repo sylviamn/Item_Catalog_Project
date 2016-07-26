@@ -1,0 +1,39 @@
+<!--Page showing form to edit item in category-->
+
+<!--Header-->
+{% extends "header.html" %}
+
+<!--page content-->
+{% block content %}
+	
+		<h1>Edit Item - {{ item.name }}</h1>
+		
+		<!--Form to edit category within tile-->
+		<div class="col-xs-12 col-sm-12">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="row">
+			<div class="well3" >
+				<form action="{{ url_for('editItem', category_id=category_id, item_id=item.id)}}" method = 'post'>
+					<h3>Name:</h3>
+						<input type='text' size='30' name='name' placeholder='{{item.name}}'>
+					<h3>Description:</h3>
+						<input type='text' size='30' name='description' placeholder='{{item.description}}'>
+					<h3>Color:</h3>
+						<input type='text' size='30' name='color' placeholder='{{item.color}}'>
+					<h3>Price:</h3>
+						<input type='text' size='30' name='price' placeholder='{{item.price}}'>
+					</br>
+					</br>
+					<input type='submit' value='Update'>
+					<button type="button"> <a href = '{{ url_for('showCategoryItems', category_id=category_id) }}'>Cancel</a></button>
+				</form>
+			</div>
+          </div>
+        </div>
+		
+		
+{% endblock %}
+		
+		

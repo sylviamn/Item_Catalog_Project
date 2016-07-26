@@ -1,0 +1,38 @@
+<!--Page showing form to add new item to category-->
+
+<!--Header-->
+{% extends "header.html" %}
+
+<!--page content-->
+{% block content %}
+	
+		<h1>{{ category.name }} - Add New Item</h1>
+		
+		<!--Form to add new item to category within tile-->
+		<div class="col-xs-12 col-sm-12">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="row">
+			<div class="well3" >
+				<form action="{{ url_for('newItem', category_id=category.id)}}" method = 'post'>
+					<h3>Name:</h3>
+						<input type='text' size='30' name='name'>
+					<h3>Description:</h3>
+						<input type='text' size='30' name='description'>
+					<h3>Color:</h3>
+						<input type='text' size='30' name='color'>
+					<h3>Price:</h3>
+						<input type='text' size='30' name='price'>
+					</br>
+					</br>
+					<input type='submit' value='Add'>
+					<button type="button"> <a href = '{{ url_for('showCategoryItems', category_id=category.id) }}'>Cancel</a></button>
+				</form>
+			</div>
+          </div>
+        </div>
+		
+		
+{% endblock %}
+		
