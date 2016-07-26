@@ -7,7 +7,7 @@ This project runs an application that interacts with a database containing categ
 3. Run ```vagrant up```
 4. Run ```vagrant ssh```
 5. Run ```cd /vagrant/catalog```
-6. Run ```python database_setup.py``
+6. Run ```python database_setup.py```
 7. Run ```python database_load.py```
 8. Run ```python finalproject.py```
 9. Go to localhost:2200/ on web browser
