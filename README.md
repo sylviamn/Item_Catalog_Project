@@ -18,8 +18,8 @@ This project runs an application that interacts with a database containing categ
 
 ###JSON endpoint tests:
 * List of Categories
-..* localhost:2200/Category/JSON
+⋅⋅* localhost:2200/Category/JSON
 * List of Items in a Category
-..* localhost:2200/Category/1/JSON
+⋅⋅* localhost:2200/Category/1/JSON
 * List of one Item
-..* localhost:2200/Category/1/1/JSON
+⋅⋅* localhost:2200/Category/1/1/JSON
