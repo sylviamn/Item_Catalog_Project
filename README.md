@@ -12,11 +12,11 @@ This project runs an application that interacts with a database containing categ
 8. Run ```python finalproject.py```
 9. Go to localhost:2200/ on web browser
 
-###Authentication/Authorization:
+##Authentication/Authorization:
 * Must be logged in to your Google account to see/use Create/Update/Delete features.
 * You can only create/edit your own categories and items within.
 
-###JSON endpoint tests:
+##JSON endpoint tests:
 * List of Categories
   * localhost:2200/Category/JSON
 * List of Items in a Category
